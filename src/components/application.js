@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 import Image from "./image"
+import TextBox from "./textbox"
 
-const getFileName = (src)=>src.split('/').pop();
+const getFileName = src => src.split("/").pop()
 export default function Application({ images }) {
   const [index, changeIndex] = useState(0)
   const [intervalTime, changeInterval] = useState(10000)
@@ -17,35 +18,35 @@ export default function Application({ images }) {
     <div className="main">
       <div className="options">
         <h1>Options</h1>
-        <div
-          className="option"
+        <TextBox
+          header={"Timing"}
           onClick={() =>
             changeInterval(
-              intervalTime == 10000
+              intervalTime === 10000
                 ? 20000
-                : intervalTime == 20000
+                : intervalTime === 20000
                 ? 30000
-                : intervalTime == 30000
+                : intervalTime === 30000
                 ? 60000
                 : 10000
             )
           }
-        >
-          <div className="option-header">Timing</div>
-          <div>{intervalTime / 1000} seconds</div>
-        </div>
-        <div className="option" onClick={() => changeCaptionUse(!caption)}>
-          <div className="option-header">Caption</div>
-          <div>{caption ? "on" : "off"}</div>
-        </div>
+          content={`${intervalTime / 1000} seconds`}
+        />
+        <TextBox
+          header={"Caption"}
+          onClick={() => changeCaptionUse(!caption)}
+          content={caption ? "on" : "off"}
+        />
       </div>
       <div className="content">{<Image src={images[index]} />}</div>
       <div className="output">
+        <h1>Outputs</h1>
         {caption && (
-          <div className="option">
-            <div className="option-header" >Caption:</div>
-            <div>{getFileName(images[index])} </div>
-          </div>
+          <TextBox
+            header={"Caption:"}
+            content={getFileName(images[index])}
+          />
         )}
       </div>
     </div>
