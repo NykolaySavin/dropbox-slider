@@ -5,6 +5,14 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+      {
+          resolve: `gatsby-source-dropbox`,
+          options: {
+              accessToken: `7vyVnQ4ss9oAAAAAAAEjM2pe2GQmeuBLi2r_R81w58LWxyMYREeTeQtu8AC6Gfar`,
+              extensions: ['.pdf', '.jpg', '.png', '.md'],
+              recursive: false,
+          },
+      },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
