@@ -39,7 +39,7 @@ export default function Application({ images }) {
           content={caption ? "on" : "off"}
         />
       </div>
-      <div className="content">{<Image src={images[index]} />}</div>
+      <div className="content" onClick={()=> changeIndex(index >= images.length - 1 ? 0 : index + 1)}><div className="img">{<Image src={images[index]} />}</div></div>
       <div className="output">
         <h1>Outputs</h1>
         {caption && (

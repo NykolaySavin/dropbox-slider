@@ -622,17 +622,28 @@ pre tt:after {
 }
 .main{
     display: flex;
+  width: 100%;
+  height:100vh;
     flex-direction: row;
 }
 .options{
-    padding: 50px;
+  align-items: center;
     display: flex;
+  flex-grow: 1;
     flex-direction: column;
 }
 .content{
-    padding: 50px;
-    width: 700px;
-    height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  flex-grow: 2;
+}
+.img{
+  width: 100%;
+  flex-grow: 0;
 }
 .option{
     display: flex;
@@ -642,5 +653,8 @@ pre tt:after {
     padding-right: 20px;
 }
 .output{
-    padding: 50px;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  display: flex;
 }
