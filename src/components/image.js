@@ -19,7 +19,9 @@ const Image = (src) => (
           }
     `}
     render={data =>{
-      const fluid = data.allImageSharp.edges.find((element) => getFileName( element.node.fluid.src)===getFileName( src.src)).node.fluid
+
+      const fluid = data.allImageSharp.edges.find((element) =>{
+        return getFileName( element.node.fluid.src.replace(/%20/gi,' '))===getFileName( src.src)}).node.fluid
       return(<Img fluid={fluid}  />)
     } }
   />
